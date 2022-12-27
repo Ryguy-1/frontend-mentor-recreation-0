@@ -1,0 +1,203 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+    --darkcyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+    --verydarkblue: hsl(212, 21%, 14%);
+    --darkgreyishblue: hsl(228, 12%, 48%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body{
+    background-color: var(--cream);
+}
+
+.main-div{
+    display: flex;
+    margin: 10% 10%;
+    position: relative;
+    border-radius: 10px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 0px;
+}
+
+.left{
+    display: inline-block;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 50%;
+    overflow: hidden;
+}
+
+.left img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.right{
+    background-color: var(--white);
+    padding: 30px;
+    display: grid;
+    width: 50%;
+    grid-template-areas:
+    "head      head"
+    "item-name item-name"
+    "p         p"
+    "price-1   price-2"
+    "cart      cart";
+    min-width: none;
+    min-height: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.category{
+    grid-area: head;
+    color: var(--darkgreyishblue);
+    font-family: "Montserrat";
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+}
+
+.category h2{
+    margin: 0 0 0.5rem 0;
+}
+
+.item-name{
+    grid-area: item-name;
+    font-family: "Fraunces";
+}
+
+h1{
+    margin: 0 0;
+}
+
+.description{
+    grid-area: p;
+}
+
+.description p{
+    color: var(--darkgreyishblue);
+    font-size: 1rem;
+}
+
+.price-1{
+    display: flex;
+    grid-area: price-1;
+    font-size: 2rem;
+}
+
+.price-1 p{
+    margin: 0 0;
+    align-self: flex-end;
+    font-family: "Fraunces";
+    color: var(--darkcyan)
+}
+
+.price-1 p::before{
+    content: "$";
+}
+
+.price-2{
+    display: flex;
+    grid-area: price-2;
+    font-size: 0.8rem;
+    color: var(--darkgreyishblue);
+}
+
+.price-2 p{
+    margin: 0 0;
+    align-self: flex-end;
+    text-decoration: line-through;
+}
+
+.price-2 p::before{
+    content: "$";
+}
+.add-to-cart{
+    grid-area: cart;
+}
+
+
+button{
+    background-color: var(--darkcyan);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    height: 60%;
+    margin-top: 10%;
+    font-family: "Montserrat";
+    font-weight: bold;
+    display: flex;
+    font-size: 1.2rem;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+button:hover{
+    background-color: var(--verydarkblue);
+    cursor: pointer;
+}
+
+button p{
+    align-self: center;
+}
+
+.svg-icon {
+    align-self: center;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: var(--white);
+  }
+  
+  .svg-icon circle {
+    stroke: var(--white);
+    stroke-width: 1;
+  }
+
+@media only screen and (max-width: 757px){
+    .main-div{
+        flex-flow: column nowrap;
+    }
+    .right{
+        width: 100%;
+        overflow: hidden;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+    }
+    .left{
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+    }
+}
+
+@media only screen and (min-width: 1526px){
+    .right{
+        border-radius: 10px;
+    }
+    .left{
+        border-radius: 10px;
+    }
+    .left img{
+        border-radius: inherit;
+    }
+}
+
+
+/* .right > *{
+    border: 5px solid red;
+} */
